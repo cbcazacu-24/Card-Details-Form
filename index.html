@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <img class="mobileBackground" src="/assets/bg-main-mobile.png" alt="mobile background image">
+    <img class="desktopBackground" src="/assets/bg-main-desktop.png" alt="desktop background">
+    <img class="cardFront" src="/assets/bg-card-front.png" alt="Front Card Image">
+    <img class="cardBack" src="/assets/bg-card-back.png" alt="Back Card Image">
+    
+    <img class="logo" src="/assets/card-logo.svg" alt="card logo">
+    <div class="cardFrontDetails">
+        <span id="cardNo">0000 0000 0000 0000</span>
+        <span id="name">Name Name</span>
+        <span id="date">00/00</span>
+    </div>
+
+    <span id="cvc">000</span>
+
+
+    <form action="submit" id="form" class="formContainer">
+            
+        <label for="">CARDHOLDER NAME</label>
+        <input id="nameInput" type="text" placeholder="e.g. Bogdan Cazacu">
+        <span id="errName"></span>
+
+        <label for="">CARD NUMBER</label>
+        <input id="cardNoInput" type="text" placeholder="e.g. 1234 5678 9123 0000">
+        <span id="errCard"></span>
+        <span id="errNumber"></span>
+
+
+        <div class="securityInfo">
+            <span id="date">
+                <label for="">Exp. Date (MM/YY)</label>
+                <span class="inputs">
+                    <input id="monthInput" type="text" placeholder="M.M.">
+                    <span id="errDate"></span>
+
+                    <input id="yearInput" type="text" placeholder="Y.Y.">
+                </span>
+            </span>
+
+            <span id="cvcContainer">
+                <label for="">CVC</label>
+                <input id="cvcInput" type="text" placeholder="e.g. 123">
+                <span id="errCVC"></span>
+            </span>
+
+        </div>
+
+        <div class="confirmation">
+            <img src="/assets/icon-complete.svg" alt="">
+            <span>THANK YOU!</span>
+            <span>We've added your card details</span>
+        </div>
+
+        <button id="btn">Confirm</button>
+
+    </form>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
