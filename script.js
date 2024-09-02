@@ -19,24 +19,32 @@ const errCVC = document.getElementById('errCVC') ;
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    // declare isValid variable to set whether inputs are valid before submitting form
+    let isValid = true;
+
     // checking if the inputs are empty and displayng empty fields message
     if(nameInput.value === '' || nameInput.value == null) {
         errName.innerHTML = 'Field cannot be empty';
+        isValid = false;
     }
 
     if(cardNoInput.value === '' || cardNoInput.value == null) {
         errCard.innerHTML = 'Field cannot be empty';
+        isValid = false;
     }
 
     if(monthInput.value === '' || monthInput.value == null) {
         errDate.innerHTML = 'Field cannot be empty';
+        isValid = false;
     }
     if(yearInput.value === '' || yearInput.value == null) {
         errDate.innerHTML = 'Field cannot be empty';
+        isValid = false;
     }
 
     if(cvcInput.value === '' || cvcInput.value == null) {
         errCVC.innerHTML = 'Field cannot be empty';
+        isValid = false;
     }
 
 
@@ -55,6 +63,7 @@ form.addEventListener('submit', (e) => {
 
     }else {
         errNumber.innerHTML = 'Wrong format, numbers only!'
+        isValid = false;
     }
     
     // checking if the date inputs is a number and displayng wrong format message
@@ -63,6 +72,7 @@ form.addEventListener('submit', (e) => {
     
     }else {
         errDate.innerHTML = 'Wrong format, numbers only!'
+        isValid = false;
     }
     
     // checking if the CVC number input is a number and displayng wrong format message
@@ -71,29 +81,36 @@ form.addEventListener('submit', (e) => {
     
     }else {
         errCVC.innerHTML = 'Wrong format, numbers only!'
+        isValid = false;
     }
 
 
+    if(isValid) {
+        // updating visible values with inputs from user
+        let name = document.querySelector('#name');
+        name.textContent = nameInput.value;
 
-    // updating visible values with inputs from user
-    let name = document.querySelector('#name');
-    name.textContent = nameInput.value;
+        let cardNumber = document.querySelector('#cardNo');
+        cardNumber.textContent = cardNoInput.value;
 
-    let cardNumber = document.querySelector('#cardNo');
-    cardNumber.textContent = cardNoInput.value;
+        let date = document.querySelector('#date');
+        date.textContent = `${monthInput.value} / ${yearInput.value}`;
 
-    let date = document.querySelector('#date');
-    date.textContent = `${monthInput.value} / ${yearInput.value}`;
-
-    let cvc = document.querySelector('#cvc');
-    cvc.textContent = cvcInput.value;
-
-
+        let cvc = document.querySelector('#cvc');
+        cvc.textContent = cvcInput.value;
 
 
-    // getting confirmation screen when all inputs are correct
-    let inputs = document.querySelector('.securityInfo');
-    inputs.classList.remove('.')
+
+
+        // getting confirmation screen when all inputs are correct
+        let inputs = document.querySelector('.formContainer');
+        inputs.classList.add('hideInputs');
+
+        let confirmation = document.querySelector('.confirmation');
+        confirmation.classList.add('showConfirmation');
+
+    }
+
 
 
 })
